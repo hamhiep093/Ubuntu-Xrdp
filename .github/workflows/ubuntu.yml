@@ -27,10 +27,7 @@ jobs:
     - name: Installing Xrdp
       run: sudo apt install xrdp -y && sudo service xrdp restart
     - name: Installing Ngrok
-      run: wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -O ngrok.zip && unzip ngrok.zip
+      run: npm install -g localtunnel
     - name: Creating Tunnel
-      env:
-       ngroktoken: ${{ secrets.NGROK_AUTH_TOKEN }}
       run: |
-           ./ngrok authtoken $ngroktoken
-           ./ngrok tcp 3389
+           lt --port 3389
