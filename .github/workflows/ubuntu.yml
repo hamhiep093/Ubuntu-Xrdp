@@ -27,7 +27,7 @@ jobs:
     - name: Installing Xrdp
       run: sudo apt install xrdp -y && sudo service xrdp restart
     - name: Installing Ngrok
-      run: npm install -g localtunnel
+      run: sudo npm install -g localtunnel
     - name: Creating Tunnel
       run: |
            lt --port 3389
